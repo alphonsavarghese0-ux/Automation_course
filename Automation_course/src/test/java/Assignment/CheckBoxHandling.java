@@ -40,10 +40,17 @@ public class CheckBoxHandling extends FormSubmit{
         }
 
 	}
-	//public void checkBoxList()
+	
+	public void checkBoxListCount()
+	{
+        List<WebElement> numberlist = driver.findElements(By.xpath("//input[@type=checkbox']"));
+        System.out.println("Total no of checkbox :"+numberlist.size());
+	}
+	public void checkBoxList()
 	{
 		driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
         List<WebElement> numberlist = driver.findElements(By.xpath("//input[@type=checkbox']"));
+	
         for(WebElement list :numberlist)
 		{
         {
@@ -55,14 +62,28 @@ public class CheckBoxHandling extends FormSubmit{
 		}
 		}
 	}
-	//
+	public void allCheckBox()
+	{
+		driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
+        List<WebElement> numberlist = driver.findElements(By.xpath("//input[@value='Select All']"));
+	
+        for(WebElement list :numberlist)
+		{
+				list.click();
+			
+		}
+		}
+	
+	
 	public static void main(String[] args) {
 		CheckBoxHandling checkboxhandling = new CheckBoxHandling();
 		checkboxhandling.initializebrowser();
 		checkboxhandling.checkBoxClick();
-		checkboxhandling.isSelected();
-		checkboxhandling.isEnabled();
-		//checkboxhandling.checkBoxList();
+		//checkboxhandling.isSelected();
+		//checkboxhandling.isEnabled();
+		checkboxhandling.checkBoxListCount();
+		checkboxhandling.checkBoxList();
+		checkboxhandling.allCheckBox();
 		
 
 	}
